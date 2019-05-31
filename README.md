@@ -8,7 +8,7 @@ Removes offsetted strings from an array.
 
 ## Node Repository
 
-[https://www.npmjs.com/package/@pelevesque/remove-offsets](https://www.npmjs.com/package/@pelevesque/remove-offsets)
+https://www.npmjs.com/package/@pelevesque/remove-offsets
 
 ## Installation
 
