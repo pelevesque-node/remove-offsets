@@ -14,7 +14,12 @@
     "type": "git",
     "url": "git+https://github.com/pelevesque/remove-offsets.git"
   },
-  "keywords": [],
+  "keywords": [
+    "string",
+    "remove",
+    "offset",
+    "offsetted"
+  ],
   "author": "Pierre-Emmanuel Lévesque <pierre.e.levesque@gmail.com>",
   "license": "MIT",
   "bugs": {
