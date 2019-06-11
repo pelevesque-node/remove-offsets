@@ -96,4 +96,44 @@ describe('#removeOffsets()', () => {
     ]
     expect(JSON.stringify(result)).to.equal(JSON.stringify(expected))
   })
+
+  it('should return removed offsets', () => {
+    const arr = [
+      '123456789',
+      'aaaabbbbb',
+      'abbbbbaaa',
+      'bbbbbaaaa', // 1
+      '234567891', // 0
+      '678912345', // 0
+      '912345678'
+    ]
+    const result = removeOffsets(arr, 4)
+    const expected = [3, 4, 5]
+    expect(JSON.stringify(result)).to.equal(JSON.stringify(expected))
+  })
+
+  it('Should not remove anything when the remove flag is false', () => {
+    const arr = [
+      '123456789',
+      'aaaabbbbb',
+      'abbbbbaaa',
+      'bbbbbaaaa', // 1
+      '234567891', // 0
+      '678912345', // 0
+      '912345678'
+    ]
+    const removeFlag = false
+    removeOffsets(arr, 4, removeFlag)
+    const result = arr
+    const expected = [
+      '123456789',
+      'aaaabbbbb',
+      'abbbbbaaa',
+      'bbbbbaaaa', // 1
+      '234567891', // 0
+      '678912345', // 0
+      '912345678'
+    ]
+    expect(JSON.stringify(result)).to.equal(JSON.stringify(expected))
+  })
 })
