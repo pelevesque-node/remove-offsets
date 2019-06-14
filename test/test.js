@@ -122,8 +122,8 @@ describe('#removeOffsets()', () => {
       '678912345', // 0
       '912345678'
     ]
-    const removeFlag = false
-    removeOffsets(arr, 4, removeFlag)
+    const remove = false
+    removeOffsets(arr, 4, remove)
     const result = arr
     const expected = [
       '123456789',
