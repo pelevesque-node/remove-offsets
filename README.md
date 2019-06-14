@@ -26,18 +26,21 @@ https://www.npmjs.com/package/@pelevesque/remove-offsets
 
 ## Usage
 
-### parameters
+### Parameters
 
 ```js
-arr (required)   
-step (optional) default = 1
+arr    (required)
+step   (optional) default = 1
+remove (optional) default = true
 ```
 
-### examples
+### Requiring
 
 ```js
 const removeOffsets = require('@pelevesque/remove-offsets')
 ```
+
+### Basic
 
 ```js
 const arr = [
@@ -51,15 +54,21 @@ const arr = [
   'panama',
   'amapan' // 8
 ]
-removeOffsets(arr)
-[
-  'abcdef',
-  '123456',
-  'apple',
-  'banana',
-  'panama'
-]
+const removedIndexes = removeOffsets(arr)
+/*
+removedIndexes === [2, 4, 6, 8]
+arr ===
+  [
+    'abcdef',
+    '123456',
+    'apple',
+    'banana',
+    'panama'
+  ]
+*/
 ```
+
+### Using Step
 
 ```js
 // Only check for offsets every 4 steps
@@ -72,11 +81,50 @@ const arr = [
   '678912345', // 0
   '912345678'
 ]
-removeOffsets(arr, 4)
-[
+const step = 4
+const removedIndexes = removeOffsets(arr, step)
+/*
+removedIndexes === [3, 4, 5]
+arr ===
+  [
+    '123456789',
+    'aaaabbbbb',
+    'abbbbbaaa',
+    '912345678'
+  ]
+*/
+```
+
+### Remove Flag
+
+With the remove flag on, removedIndexes are still returned, but nothing is
+removed from the array.
+
+```js
+// Only check for offsets every 4 steps
+const arr = [
   '123456789',
   'aaaabbbbb',
   'abbbbbaaa',
+  'bbbbbaaaa', // 1
+  '234567891', // 0
+  '678912345', // 0
   '912345678'
 ]
+const step = 4
+const remove = true
+const removedIndexes = removeOffsets(arr, step, remove)
+/*
+removedIndexes === [3, 4, 5]
+arr ===
+  [
+    '123456789',
+    'aaaabbbbb',
+    'abbbbbaaa',
+    'bbbbbaaaa',
+    '234567891',
+    '678912345',
+    '912345678'
+  ]
+*/
 ```
