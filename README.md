@@ -4,7 +4,7 @@
 
 # remove-offsets
 
-Removes offsetted strings from an array.
+Removes and returns offsetted strings from an array.
 
 ## Node Repository
 
