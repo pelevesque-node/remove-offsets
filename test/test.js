@@ -113,7 +113,7 @@ describe('#removeOffsets()', () => {
     expect(JSON.stringify(offsets)).to.equal(JSON.stringify(expectedOffsets))
   })
 
-  it('Should not remove anything when the remove flag is false', () => {
+  it('Should not remove anything when the remove option is false', () => {
     const arr = [
       '123456789',
       'aaaabbbbb',
