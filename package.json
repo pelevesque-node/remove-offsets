@@ -1,6 +1,6 @@
 {
   "name": "@pelevesque/remove-offsets",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Removes and returns offsetted strings from an array.",
   "main": "index.js",
   "engines": {
