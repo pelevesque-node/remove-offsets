@@ -29,9 +29,8 @@ https://www.npmjs.com/package/@pelevesque/remove-offsets
 ### Parameters
 
 ```js
-arr    (required)
-step   (optional) default = 1
-remove (optional) default = true
+arr     (required)
+options (optional) default = { step: 1, remove: true }
 ```
 
 ### Requiring
@@ -52,23 +51,27 @@ const arr = [
   'banana',
   '456123', // 1
   'panama',
-  'amapan' // 8
+  'amapan' // 7
 ]
-const removedIndexes = removeOffsets(arr)
+const offsets = removeOffsets(arr)
 /*
-removedIndexes === [2, 4, 6, 8]
-arr ===
-  [
-    'abcdef',
-    '123456',
-    'apple',
-    'banana',
-    'panama'
-  ]
+arr = [
+  'abcdef',
+  '123456',
+  'apple',
+  'banana',
+  'panama'
+]
+offsets = [
+  'defabc',
+  '234561',
+  '456123',
+  'amapan'
+]
 */
 ```
 
-### Using Step
+### Step Option
 
 ```js
 // Only check for offsets every 4 steps
@@ -81,24 +84,26 @@ const arr = [
   '678912345', // 0
   '912345678'
 ]
-const step = 4
-const removedIndexes = removeOffsets(arr, step)
+const offsets = removeOffsets(arr, { step: 4 })
 /*
-removedIndexes === [3, 4, 5]
-arr ===
-  [
-    '123456789',
-    'aaaabbbbb',
-    'abbbbbaaa',
-    '912345678'
-  ]
+arr = [
+  '123456789',
+  'aaaabbbbb',
+  'abbbbbaaa',
+  '912345678'
+]
+offsets = [
+  'bbbbbaaaa',
+  '234567891',
+  '678912345'
+]
 */
 ```
 
-### Remove Flag
+### Remove Option
 
-With the remove flag on, removedIndexes are still returned, but nothing is
-removed from the array.
+With the remove option set to false, offsets are still returned, but nothing is
+removed from the original array.
 
 ```js
 // Only check for offsets every 4 steps
@@ -111,20 +116,21 @@ const arr = [
   '678912345', // 0
   '912345678'
 ]
-const step = 4
-const remove = true
-const removedIndexes = removeOffsets(arr, step, remove)
+const offsets = removeOffsets(arr, { step: 4, remove: false })
 /*
-removedIndexes === [3, 4, 5]
-arr ===
-  [
-    '123456789',
-    'aaaabbbbb',
-    'abbbbbaaa',
-    'bbbbbaaaa',
-    '234567891',
-    '678912345',
-    '912345678'
-  ]
+arr = [
+  '123456789',
+  'aaaabbbbb',
+  'abbbbbaaa',
+  'bbbbbaaaa',
+  '234567891',
+  '678912345',
+  '912345678'
+]
+offsets = [
+  'bbbbbaaaa',
+  '234567891',
+  '678912345'
+]
 */
 ```
