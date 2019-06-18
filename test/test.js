@@ -67,7 +67,7 @@ describe('#removeOffsets()', () => {
       'banana',
       '456123', // 1
       'panama',
-      'amapan' // 8
+      'amapan' // 7
     ]
     const offsets = removeOffsets(arr)
     const expectedArr = [
@@ -78,10 +78,10 @@ describe('#removeOffsets()', () => {
       'panama'
     ]
     const expectedOffsets = [
-      'defabc', // 0
-      '234561', // 1
-      '456123', // 1
-      'amapan' // 8
+      'defabc',
+      '234561',
+      '456123',
+      'amapan'
     ]
     expect(JSON.stringify(arr)).to.equal(JSON.stringify(expectedArr))
     expect(JSON.stringify(offsets)).to.equal(JSON.stringify(expectedOffsets))
@@ -105,9 +105,9 @@ describe('#removeOffsets()', () => {
       '912345678'
     ]
     const expectedOffsets = [
-      'bbbbbaaaa', // 1
-      '234567891', // 0
-      '678912345' // 0
+      'bbbbbaaaa',
+      '234567891',
+      '678912345'
     ]
     expect(JSON.stringify(arr)).to.equal(JSON.stringify(expectedArr))
     expect(JSON.stringify(offsets)).to.equal(JSON.stringify(expectedOffsets))
@@ -128,15 +128,15 @@ describe('#removeOffsets()', () => {
       '123456789',
       'aaaabbbbb',
       'abbbbbaaa',
-      'bbbbbaaaa', // 1
-      '234567891', // 0
-      '678912345', // 0
+      'bbbbbaaaa',
+      '234567891',
+      '678912345',
       '912345678'
     ]
     const expectedOffsets = [
-      'bbbbbaaaa', // 1
-      '234567891', // 0
-      '678912345' // 0
+      'bbbbbaaaa',
+      '234567891',
+      '678912345'
     ]
     expect(JSON.stringify(arr)).to.equal(JSON.stringify(expectedArr))
     expect(JSON.stringify(offsets)).to.equal(JSON.stringify(expectedOffsets))
