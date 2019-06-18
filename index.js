@@ -2,7 +2,7 @@
 
 const isOffset = require('@pelevesque/is-offset')
 
-module.exports = (arr, { remove = true, step = 1 } = {}) => {
+module.exports = (arr, { step = 1, remove = true } = {}) => {
   const indexesToRemove = []
   for (let i = 0, len = arr.length - 1; i < len; i++) {
     if (indexesToRemove.indexOf(i) === -1) {
